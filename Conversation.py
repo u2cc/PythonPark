@@ -1,0 +1,1 @@
+answer = input("What is the temperature today?\n1. subzero\n2. above zero, lower than 15.\n3.")
