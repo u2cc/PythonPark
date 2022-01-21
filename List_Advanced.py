@@ -40,6 +40,7 @@ print(brands[-2:]) #prints last two using negative numerics
 for brand in brands[-2:]:
     print(brand)
 
+#In below example, we are copying list values instead of copying variable reference
 my_cars = ['Lexus','Toyota']
 my_friend_cars = my_cars[:]
 
