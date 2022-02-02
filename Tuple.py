@@ -8,3 +8,6 @@ print(dimensions[1])
 constant = 1,
 print(constant)
 #constant[0] = 2
+
+for dimension in dimensions:
+    print(dimension)
