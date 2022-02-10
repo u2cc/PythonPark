@@ -57,3 +57,26 @@ for name in extended_dictionary: # can also use extended_dictionary.keys() for b
 
 for name in sorted(extended_dictionary, reverse=True):
     print(name)
+
+print(f"\n")
+
+for language in sorted(extended_dictionary.values(), reverse=True):
+    print(language)
+
+print(f"\n")
+
+extended_dictionary['James'] = 'C'
+print(extended_dictionary)
+
+print(f"\n")
+for language in sorted(extended_dictionary.values(), reverse=True):
+    print(language)
+
+print(f"\n")
+for language in set(extended_dictionary.values()):
+    print(language)
+
+print(f"\n")
+#put values in a set to eliminate duplication and then create a list from the set with specified order 
+for language in sorted(list(set(extended_dictionary.values())), reverse=True):
+    print(language)
