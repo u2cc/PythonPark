@@ -22,6 +22,11 @@ Explanation: There are three ways to climb to the top.
 2. 1 step + 2 steps
 3. 2 steps + 1 step
 
+We can easily find the recursive nature in the above problem. The person can reach nth stair from either (n-1)th stair
+ or from (n-2)th stair. Hence, for each stair n, we try to find out the number of ways to reach n-1th stair and n-2th
+ stair and add them to give the answer for the nth stair.
+ Therefore the expression for such an approach comes out to be :
+ ways(n) = ways(n-1) + ways(n-2)
 """
 
 class ClimbStairs:
