@@ -38,6 +38,36 @@ class KthGrammar:
             return 1 - self.kthGrammar(n - 1, k - numberOfPositions / 2)
 
 
+"""
+This solution exploits the pattern that the first-half positions will have the same value as the row immediately above.
+"""
+class AlternateSolution:
+    def kthGrammar(self, n: int, k: int) -> int:
+        #exploit the fact that the first two rows have the same value for their respective first position
+        if n < 3:
+            return int('01'[k - 1])
+
+        #flag to mark the number of times for value conversion between 0 and 1
+        flag = 0
+        #times to calculate the total length of the row
+        times = 2 ** (n - 1)
+
+        while n > 2:
+            # if the position k is in the second half of the row
+            if k > times // 2:
+                #move position from k to the corresponding position in the first half
+                k -= times // 2
+                #mark value conversion once for the position change from 2nd half to 1st half of the row
+                flag += 1
+            #prepare for the n-1 row by calulating its length
+            times //= 2
+            n -= 1
+        """
+            in the end, if flag records even number of value conversion therefore self-cancelling-out, the value 
+            will be the value from the deducted position in the standard '01' otherwise in reverse as '10'. 
+            since python is 0-indexed but the quiz is 1-indexed, a k-1 operation is required. 
+        """
+        return '01'[k - 1] if flag % 2 == 0 else '10'[k - 1]
 
 #Test
 kthGrammar = KthGrammar()
@@ -45,3 +75,5 @@ row = 3
 pos = 3
 kthDigit = kthGrammar.kthGrammar(row, pos)
 print(f'The value on row number {row} at position {pos} is {kthDigit}.')
+
+print(int('0123'[3]))
